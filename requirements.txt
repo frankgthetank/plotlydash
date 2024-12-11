@@ -6,3 +6,8 @@ gunicorn
 fiona
 shapely
 
+google_auth_oauthlib.flow 
+google.auth.transport.requests 
+google.auth.credentials 
+googleapiclient.discovery
+googleapiclient.http 

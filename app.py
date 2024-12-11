@@ -22,14 +22,20 @@ server = app.server  # Esto hace que `server` esté disponible para Gunicorn
 # Mostrar el contenido del GeoDataFrame
 
 
+
+
+
+
+
+
 # Crear el mapa interactivo usando Plotly Express
 fig = px.choropleth_mapbox(
     gdf,
     geojson=geojson_data,
     locations='codparrauni',  # Cambiar según los datos del GeoJSON
-    color='nomparrauni',   # Cambiar según los datos del GeoJSON
+    #color='nomparrauni',   # Cambiar según los datos del GeoJSON
     mapbox_style="carto-positron",
-    zoom=10,
+    #zoom=10,
     center={"lat": 0, "lon": 0},
 )
 
@@ -43,10 +49,15 @@ app.layout = html.Div([
     # Aquí puedes agregar otros componentes como controles, sliders, etc.
 ])
 
+"""
+
 # Ejecutar el servidor
 if __name__ == '__main__':
     app.run_server(debug=True, host='0.0.0.0', port=80)
 print("llego al final sin problema")
 
+"""
 
-
+# Asegúrate de que la aplicación sea ejecutable
+if __name__ == "__main__":
+    app.run_server(debug=True)

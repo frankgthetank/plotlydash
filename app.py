@@ -27,8 +27,8 @@ gdf = gpd.read_csv(url)
 fig = px.choropleth_mapbox(
     gdf,
     geojson=geojson_data,
-    locations='nom_par',  # Cambiar según los datos del GeoJSON
-    color='parroquia',   # Cambiar según los datos del GeoJSON
+    locations='codparrauni',  # Cambiar según los datos del GeoJSON
+    color='nomparrauni',   # Cambiar según los datos del GeoJSON
     mapbox_style="carto-positron",
     zoom=10,
     center={"lat": 0, "lon": 0},

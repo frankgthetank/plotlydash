@@ -5,13 +5,4 @@ requests
 gunicorn
 fiona
 shapely
-pyproj
-os
-io
-json
-plotly.express 
-google_auth_oauthlib.flow 
-google.auth.transport.requests 
-google.auth.credentials 
-googleapiclient.discovery
-googleapiclient.http 
+

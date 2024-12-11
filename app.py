@@ -15,7 +15,9 @@ from googleapiclient.http import MediaIoBaseDownload
 
 # Configura el alcance y las credenciales
 SCOPES = ['https://www.googleapis.com/auth/drive.readonly']
-CLIENT_SECRET_FILE = r'C:\Users\anali\OneDrive\Documentos\PYTHON\PLOTLYDASH\client_secret_1082915945888-sq1jradiqj5b7lbjf0nmnjo9ufv4gjtf.apps.googleusercontent.com.json'
+CLIENT_SECRET_FILE = r'/etc/secrets/client_secret_1082915945888-sq1jradiqj5b7lbjf0nmnjo9ufv4gjtf.apps.googleusercontent.com.json'
+#CLIENT_SECRET_FILE = r'C:\Users\anali\OneDrive\Documentos\PYTHON\PLOTLYDASH\client_secret_1082915945888-sq1jradiqj5b7lbjf0nmnjo9ufv4gjtf.apps.googleusercontent.com.json'
+
 TOKEN_FILE = 'token.json'
 
 def authenticate_google_account():

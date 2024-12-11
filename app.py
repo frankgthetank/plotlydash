@@ -2,8 +2,10 @@ import drive_api
 import dash
 from dash import dcc, html
 import plotly.express as px
+import drive
 
-geojson_data = drive_api.download_geojson_from_drive('1HkHBBb5chWjcua97xS-xqvx4OCX5Ijq0')
+#geojson_data = drive_api.download_geojson_from_drive('1HkHBBb5chWjcua97xS-xqvx4OCX5Ijq0')
+geojson_data = drive.download_geojson('1HkHBBb5chWjcua97xS-xqvx4OCX5Ijq0', 'temp_geojson.geojson')
 # Crear la aplicación Dash
 app = dash.Dash(__name__)
 server = app.server

@@ -13,8 +13,8 @@ server = app.server
 # Crear el mapa interactivo usando Plotly Express
 fig = px.choropleth_mapbox(
     geojson=geojson_data,
-    locations='id',  # Cambiar según los datos del GeoJSON
-    color='value',   # Cambiar según los datos del GeoJSON
+    #locations='id',  # Cambiar según los datos del GeoJSON
+    #color='value',   # Cambiar según los datos del GeoJSON
     mapbox_style="carto-positron",
     zoom=10,
     center={"lat": 0, "lon": 0},

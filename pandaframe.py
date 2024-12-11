@@ -14,9 +14,6 @@ data = [feature["properties"] for feature in features]
 # Crear un DataFrame con las propiedades
 df = pd.DataFrame(data)
 
-# Verificar las columnas disponibles
-#print("Columnas disponibles en el GeoJSON:", df.columns)
-
 # Obtener valores únicos de dos columnas
 columna1 = "parroquia"  # Cambia por el nombre de la columna deseada
 columna2 = "nom_par"  # Cambia por el nombre de la columna deseada
@@ -24,19 +21,39 @@ columna2 = "nom_par"  # Cambia por el nombre de la columna deseada
 valores_unicos_columna1 = df[columna1].unique()
 valores_unicos_columna2 = df[columna2].unique()
 
+# Asegurar que ambas columnas tengan la misma longitud (rellenando si es necesario)
+longitud_maxima = max(len(valores_unicos_columna1), len(valores_unicos_columna2))
 
-# Crear el nuevo DataFrame
+# Rellenar con "Desconocido" si las longitudes no coinciden
+valores_unicos_columna1 = list(valores_unicos_columna1) + ["Desconocido"] * (longitud_maxima - len(valores_unicos_columna1))
+valores_unicos_columna2 = list(valores_unicos_columna2) + ["Desconocido"] * (longitud_maxima - len(valores_unicos_columna2))
+
+# Crear el nuevo DataFrame con las columnas alineadas
 df_resumido = pd.DataFrame({
-    "codparrauni": pd.Series(valores_unicos_columna1), # Aseguramos que las series tengan igual longitud
-    "nomparrauni": valores_unicos_columna2  
+    "codparrauni": valores_unicos_columna1,
+    "nomparrauni": valores_unicos_columna2
 })
 
-gdf = gpd.GeoDataFrame(df_resumido, geometry='geometry')
+# Ver el DataFrame resultante
+
+
+#print(df_resumido.head())
+
+
+
+
+# Guardar el DataFrame en un archivo CSV en la ubicación deseada
+df_resumido.to_csv('midataarchivo.csv', index=False)
+
+print("Archivo CSV guardado correctamente.")
+
+
+#gdf = gpd.GeoDataFrame(df_resumido, geometry='geometry')
 
 # Guardar el DataFrame en un archivo GeoJSON
-gdf.to_file("data.geojson", driver='GeoJSON')
+#gdf.to_file("midata.geojson", driver='GeoJSON')
 
-print("DataFrame guardado en 'data.geojson'.")
+#print("DataFrame guardado en 'data.geojson'.")
 
 #columnas_seleccionadas = ["valores_unicos_columna1", "valores_unicos_columna2"]
 #df_resumido = df[columnas_seleccionadas]
@@ -44,3 +61,4 @@ print("DataFrame guardado en 'data.geojson'.")
 #print(f"Valores únicos en '{columna1}':", valores_unicos_columna1)
 #print(f"Valores únicos en '{columna2}':", valores_unicos_columna2)
 #print(df_resumido.head())
+

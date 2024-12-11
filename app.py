@@ -3,7 +3,7 @@ import dash
 from dash import dcc, html
 import plotly.express as px
 import drive
-import pandaframe
+#import pandaframe
 import geopandas as gpd
 
 #geojson_data = drive_api.download_geojson_from_drive('1HkHBBb5chWjcua97xS-xqvx4OCX5Ijq0')
@@ -13,7 +13,12 @@ app = dash.Dash(__name__)
 server = app.server
 
 # Leer el archivo GeoJSON
-gdf = pandaframe.gpd.read_file("data.geojson")
+url = 'https://raw.githubusercontent.com/frankgthetank/plotlydash/refs/heads/main/midataarchivo.csv'
+
+gdf = gpd.read_csv(url)
+
+
+
 
 # Mostrar el contenido del GeoDataFrame
 

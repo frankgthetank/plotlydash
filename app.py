@@ -3,6 +3,8 @@ import dash
 from dash import dcc, html
 import plotly.express as px
 import drive
+import pandaframe
+import geopandas as gpd
 
 #geojson_data = drive_api.download_geojson_from_drive('1HkHBBb5chWjcua97xS-xqvx4OCX5Ijq0')
 geojson_data = drive.download_geojson('1HkHBBb5chWjcua97xS-xqvx4OCX5Ijq0', 'temp_geojson.geojson')
@@ -10,8 +12,15 @@ geojson_data = drive.download_geojson('1HkHBBb5chWjcua97xS-xqvx4OCX5Ijq0', 'temp
 app = dash.Dash(__name__)
 server = app.server
 
+# Leer el archivo GeoJSON
+gdf = pandaframe.gpd.read_file("data.geojson")
+
+# Mostrar el contenido del GeoDataFrame
+
+
 # Crear el mapa interactivo usando Plotly Express
 fig = px.choropleth_mapbox(
+    gdf,
     geojson=geojson_data,
     locations='nom_par',  # Cambiar según los datos del GeoJSON
     color='parroquia',   # Cambiar según los datos del GeoJSON

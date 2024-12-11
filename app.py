@@ -4,7 +4,7 @@ from dash import dcc, html
 import plotly.express as px
 import drive
 #import pandaframe
-import geopandas as gpd
+import pandas as gpd
 
 #geojson_data = drive_api.download_geojson_from_drive('1HkHBBb5chWjcua97xS-xqvx4OCX5Ijq0')
 geojson_data = drive.download_geojson('1HkHBBb5chWjcua97xS-xqvx4OCX5Ijq0', 'temp_geojson.geojson')

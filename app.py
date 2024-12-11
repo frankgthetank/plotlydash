@@ -8,18 +8,17 @@ import pandas as gpd
 
 #geojson_data = drive_api.download_geojson_from_drive('1HkHBBb5chWjcua97xS-xqvx4OCX5Ijq0')
 geojson_data = drive.download_geojson('1HkHBBb5chWjcua97xS-xqvx4OCX5Ijq0', 'temp_geojson.geojson')
-# Crear la aplicación Dash
-app = dash.Dash(__name__)
-server = app.server
 
 # Leer el archivo GeoJSON
 url = 'https://raw.githubusercontent.com/frankgthetank/plotlydash/refs/heads/main/midataarchivo.csv'
 
 gdf = gpd.read_csv(url)
 
+# Crear la aplicación Dash
+app = dash.Dash(__name__)
 
-
-
+# Esto es necesario para que Gunicorn sepa cuál es el objeto llamable del servidor
+server = app.server  # Esto hace que `server` esté disponible para Gunicorn
 # Mostrar el contenido del GeoDataFrame
 
 

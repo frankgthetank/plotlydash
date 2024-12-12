@@ -33,10 +33,12 @@ fig = px.choropleth_mapbox(
     gdf,
     geojson=geojson_data,
     locations='codparrauni',  # Cambiar según los datos del GeoJSON
-    #color='nomparrauni',   # Cambiar según los datos del GeoJSON
+    color='nomparrauni',   # Cambiar según los datos del GeoJSON
     mapbox_style="carto-positron",
     #zoom=10,
     center={"lat": 0, "lon": 0},
+    width=800,  # Ancho del mapa
+    height=600,  # Altura del mapa
 )
 
 # Layout de la aplicación Dash

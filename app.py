@@ -4,15 +4,16 @@ from dash import dcc, html
 import plotly.express as px
 import drive
 #import pandaframe
-import pandas as gpd
-
+import pandas as pd
+px.set_mapbox_access_token('pk.eyJ1IjoiZnJhbmpvZ29yZGlsbG8yNCIsImEiOiJjbTRsamlrOWIwMmo5MnFwbXd6eWpwNTQ1In0.r8O0UqVGKQtrYqogKBnIuA')
+  
 #geojson_data = drive_api.download_geojson_from_drive('1HkHBBb5chWjcua97xS-xqvx4OCX5Ijq0')
 geojson_data = drive.download_geojson('1HkHBBb5chWjcua97xS-xqvx4OCX5Ijq0', 'temp_geojson.geojson')
 
 # Leer el archivo GeoJSON
-url = 'https://raw.githubusercontent.com/frankgthetank/plotlydash/refs/heads/main/midataarchivo.csv'
+url = 'https://raw.githubusercontent.com/frankgthetank/plotlydash/refs/heads/main/midataarchivo1.csv'
 
-gdf = gpd.read_csv(url)
+df = pd.read_csv(url)
 
 # Crear la aplicación Dash
 app = dash.Dash(__name__)
@@ -30,17 +31,17 @@ server = app.server  # Esto hace que `server` esté disponible para Gunicorn
 
 # Crear el mapa interactivo usando Plotly Express
 fig = px.choropleth_mapbox(
-    gdf,
+    df,
     geojson=geojson_data,
-    locations='nomparrauni',  # Cambiar según los datos del GeoJSON
-    color='codparrauni',   # Cambiar según los datos del GeoJSON
-     color_continuous_scale="Viridis",
+    locations='nom_par',
+    featureidkey='properties.nom_par',  # Clave del GeoJSON correspondiente
+    color='parroquia',
     mapbox_style="carto-positron",
-    #zoom=10,
+    zoom=10,
     center={"lat": -0.22985, "lon": -78.52495},
-    width=1500,  # Ancho del mapa
-    height=600,  # Altura del mapa
     opacity=0.6,
+    width=1500,  # Ancho del mapa
+    height=600  # Altura del mapa
 )
 
 # Layout de la aplicación Dash

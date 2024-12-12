@@ -30,8 +30,8 @@ valores_unicos_columna2 = list(valores_unicos_columna2) + ["Desconocido"] * (lon
 
 # Crear el nuevo DataFrame con las columnas alineadas
 df_resumido = pd.DataFrame({
-    "codparrauni": valores_unicos_columna1,
-    "nomparrauni": valores_unicos_columna2
+    "parroquia": valores_unicos_columna1,
+    "nom_par": valores_unicos_columna2
 })
 
 # Ver el DataFrame resultante
@@ -43,7 +43,7 @@ df_resumido = pd.DataFrame({
 
 
 # Guardar el DataFrame en un archivo CSV en la ubicación deseada
-df_resumido.to_csv('midataarchivo.csv', index=False)
+df_resumido.to_csv('midataarchivo1.csv', index=False)
 
 print("Archivo CSV guardado correctamente.")
 

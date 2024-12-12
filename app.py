@@ -34,8 +34,8 @@ fig = px.choropleth_mapbox(
     df,
     geojson=geojson_data,
     locations='nom_par',
-    featureidkey='properties.nom_par',  # Clave del GeoJSON correspondiente
-    color='parroquia',
+    featureidkey='features.properties.nom_par',  # Clave del GeoJSON correspondiente
+    #color='parroquia',
     mapbox_style="carto-positron",
     zoom=10,
     center={"lat": -0.22985, "lon": -78.52495},
@@ -43,6 +43,8 @@ fig = px.choropleth_mapbox(
     width=1500,  # Ancho del mapa
     height=600  # Altura del mapa
 )
+
+
 
 # Layout de la aplicación Dash
 app.layout = html.Div([

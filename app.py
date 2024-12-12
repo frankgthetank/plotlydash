@@ -32,13 +32,15 @@ server = app.server  # Esto hace que `server` esté disponible para Gunicorn
 fig = px.choropleth_mapbox(
     gdf,
     geojson=geojson_data,
-    locations='codparrauni',  # Cambiar según los datos del GeoJSON
-    color='nomparrauni',   # Cambiar según los datos del GeoJSON
+    locations='nomparrauni',  # Cambiar según los datos del GeoJSON
+    color='codparrauni',   # Cambiar según los datos del GeoJSON
+     color_continuous_scale="Viridis",
     mapbox_style="carto-positron",
     #zoom=10,
-    center={"lat": 0, "lon": 0},
-    width=800,  # Ancho del mapa
+    center={"lat": -0.22985, "lon": -78.52495},
+    width=1500,  # Ancho del mapa
     height=600,  # Altura del mapa
+    opacity=0.6,
 )
 
 # Layout de la aplicación Dash

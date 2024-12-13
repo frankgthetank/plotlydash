@@ -11,7 +11,7 @@ px.set_mapbox_access_token('pk.eyJ1IjoiZnJhbmpvZ29yZGlsbG8yNCIsImEiOiJjbTRsamlrO
 geojson_data = drive.download_geojson('1HkHBBb5chWjcua97xS-xqvx4OCX5Ijq0', 'temp_geojson.geojson')
 
 # Leer el archivo GeoJSON
-url = 'https://raw.githubusercontent.com/frankgthetank/plotlydash/refs/heads/main/midataarchivo1.csv'
+url = 'https://raw.githubusercontent.com/frankgthetank/plotlydash/refs/heads/main/output_dataframe_sin_duplicados.csv'
 
 df = pd.read_csv(url)
 
